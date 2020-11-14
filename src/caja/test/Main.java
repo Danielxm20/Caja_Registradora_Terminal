@@ -2,6 +2,7 @@ package caja.test;
 
 import caja.almacenamiento.BaseDatos;
 import caja.productos.Producto;
+import caja.vista.Vista;
 
 public class Main {
 
@@ -13,6 +14,11 @@ public class Main {
         BaseDatos basedatos = new BaseDatos();
         Producto producto = basedatos.getPorIndice(0);
         System.out.println(producto);
+
+        Vista.mostrarEncabezado();
+        Vista.verMenuPrincipal();
+        int option = Vista.getOpcion();
+        System.out.println("La opciondigitada fue:" + option);
 
     }
 }

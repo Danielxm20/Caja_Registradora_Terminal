@@ -1,6 +1,6 @@
 package caja.productos;
 
-public abstract class Producto {
+public abstract class Producto implements Cloneable {
 
     private String nombre;
     private int cantidad;
@@ -48,5 +48,9 @@ public abstract class Producto {
     @Override
     public String toString(){ // Sobre escribiendo el metodo para saber el estado del objeto
         return this.nombre + " - " + this.cantidad + " - " + this.precio; // devuelve los atributos del objeto
+    }
+
+    public Producto clone() throws CloneNotSupportedException{
+        return (Producto) super.clone();
     }
 }
