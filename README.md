@@ -1,0 +1,1 @@
+# Caja_Registradora_Terminal
