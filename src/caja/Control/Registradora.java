@@ -8,6 +8,7 @@ import caja.productos.Producto;
 import caja.vista.Vista;
 
 import javax.swing.text.View;
+import java.util.List;
 
 public class Registradora {
     private BaseDatos baseDatos;
@@ -21,11 +22,12 @@ public class Registradora {
     }
 
     public void registradora() {
-        Vista.mostrarEncabezado();
-        Vista.verMenuPrincipal();
+
 
         int opcion;
         do{
+            Vista.mostrarEncabezado();
+            Vista.verMenuPrincipal();
             Vista.seleccionarOpcion();
             opcion = Vista.getOpcion();
             switch (opcion) {
@@ -36,14 +38,16 @@ public class Registradora {
                     vender();
                     break;
                 case 3:
-                    Vista.encabezadoInventario();
+                    mostrarInventario();
                     //showStock();
                     break;
                 case 4:
+                    mostrarCompras();
                     Vista.mostarEncabezadoCompras();
                     //showPurchases();
                     break;
                 case 5:
+                    mostrarVentas();
                     Vista.mostrarEncabezadoVentas();
                     //showSales();
                     break;
@@ -55,10 +59,11 @@ public class Registradora {
                 default:
                     Vista.opcionInvalida();
             }
-        }while (opcion < 1 || opcion > 6);
+        }while (opcion >= 1 && opcion <= 6);
 
     }
-    // El metodo comprar muestra el menu de compras y captura la opcion deseada por el usuario
+
+   // El metodo comprar muestra el menu de compras y captura la opcion deseada por el usuario
     private void comprar(){
         Vista.menuCompras();
         int opcion;
@@ -78,7 +83,22 @@ public class Registradora {
     }
 
     private void vender(){
+
         Vista.encabezadoVentas();
+        int opcion;
+        do{
+            Vista.seleccionarOpcion();
+            opcion= Vista.getOpcion();
+            if (opcion >=1 && opcion <= 3){
+                venderProducto(opcion);
+            }else if(opcion==4){
+                Vista.mostrarSalida("Ventas");
+                return;
+            }
+            else
+                Vista.opcionInvalida();
+
+        }while(opcion < 1 || opcion > 4);
     }
 
     //registra en la bd el producto comprado
@@ -105,6 +125,51 @@ public class Registradora {
         producto.setCantidad(cantidad);
         producto.setPrecio(precio);
         baseDatos.comprar(producto);
+
+    }
+
+    public void venderProducto(int opcion){
+        Producto producto = null;
+        if (opcion < 1 || opcion > 3){
+            Vista.opcionInvalida();
+            return;
+        }
+
+        producto= baseDatos.getPorIndice(opcion - 1);
+        Vista.mostrarGetCantidad();
+        int cantidad = Vista.getCantidad();
+        if(producto.getCantidad() < cantidad){
+            Vista.mostrarCantidadInvalida();
+            return;
+        }
+
+        producto.setCantidad(cantidad);
+        baseDatos.vender(producto);
+
+    }
+
+    private void mostrarInventario(){
+        Vista.encabezadoInventario();
+        Vista.mostrarInventarioItems(baseDatos.getTodos());
+        Vista.mostrarCualquiera();
+        Vista.getOpcion();
+    }
+
+    private void mostrarCompras(){
+        List <Producto> listado = baseDatos.getCompras();
+        Vista.mostarEncabezadoCompras();
+        Vista.mostrarCompras(listado);
+        Vista.mostrarCualquiera();
+        Vista.getOpcion();
+
+    }
+
+    private void mostrarVentas(){
+        List <Producto> listado = baseDatos.getVentas();
+        Vista.mostrarEncabezadoVentas();
+        Vista.mostrarVentas(listado);
+        Vista.mostrarCualquiera();
+        Vista.getOpcion();
 
     }
 }

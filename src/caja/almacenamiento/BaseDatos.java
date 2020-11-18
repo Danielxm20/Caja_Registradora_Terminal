@@ -57,14 +57,16 @@ public class BaseDatos {
 
     public void comprar(Producto producto) {
         Producto temp;
+        System.out.println("aqui"+producto.getClass());
         switch (producto.getClass().getSimpleName()){
-            case "papa":
+
+            case "Papa":
                 temp = productos[0];
                 break;
-            case "arroz":
+            case "Arroz":
                 temp = productos[1];
                 break;
-            case "carne":
+            case "Carne":
 
                 temp = productos[2];
                 break;
@@ -84,13 +86,13 @@ public class BaseDatos {
     public void vender(Producto producto) {
         Producto temp;
         switch (producto.getClass().getSimpleName()){
-            case "papa":
+            case "Papa":
                 temp = productos[0];
                 break;
-            case "arroz":
+            case "Arroz":
                 temp = productos[1];
                 break;
-            case "carne":
+            case "Carne":
 
                 temp = productos[2];
                 break;
@@ -108,7 +110,7 @@ public class BaseDatos {
     }
 
     public List<Producto> getCompras(){
-        return ventas;
+        return compras;
     }
 
     public List<Producto> getVentas(){

@@ -1,7 +1,11 @@
 package caja.vista;
 
+import caja.productos.Producto;
+
 import java.awt.*;
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Vista {
 
@@ -52,7 +56,7 @@ public class Vista {
 
 
     public static void menuCompras(){
-        System.out.print(Color.YELLOW);
+      //  System.out.print(Color.YELLOW);
         System.out.println("\t\t**************************************");
         System.out.println("\t\t*            MENU DE COMPRAS         *");
         System.out.println("\t\t**************************************");
@@ -84,7 +88,7 @@ public class Vista {
         System.out.println("\t\t-----------------------------------------------------");
         System.out.println("\t\t* PRODUCTO\t| Cantidad\t| Vr Unitario\t| Vr Total\t*");
         System.out.println("\t\t-----------------------------------------------------");
-       /* for (Product v : products) {
+        /*for (Producto v : productos) {
             System.out.println("\t\t* "+v.getName()+"\t| "+v.getAmount()+"\t\t| "+v.getPrice()+"\t\t\t| "+v.getAmount()*v.getPrice()+"\t\t*");
         }*/
         //System.out.print(Color.RESET);
@@ -124,5 +128,34 @@ public class Vista {
 
     public static void mostrarSalida(String name){
         System.out.println("Saliendo del modulo: " + name);
+    }
+
+    public static void mostrarCualquiera(){
+        System.out.print("Digite cualquier numero para continuar: ");
+    }
+
+    public static void mostrarInventarioItems(Producto [] productos){
+        for (Producto v : productos) {
+            System.out.println("\t\t* "+v.getNombre()+"\t| "+v.getCantidad()+"\t\t| "+v.getPrecio()+"\t\t\t| "+v.getCantidad()*v.getPrecio()+"\t\t*");
+        }
+    }
+
+    public static void mostrarCantidadInvalida(){
+        System.out.println("La cantidad es invalida");
+    }
+
+    public static void mostrarCompras(List<Producto> listado){
+        for (Producto p: listado){
+            System.out.println("\t\t* "+p.getNombre()+"\t| "+p.getCantidad()+"\t\t| "+p.getPrecio()+"\t\t\t| "+p.getCantidad()*p.getPrecio()+"\t\t*");
+
+        }
+    }
+
+    public static void mostrarVentas(List <Producto> listado){
+        for (Producto p: listado){
+            System.out.println("\t\t* "+p.getNombre()+"\t| "+p.getCantidad()+"\t\t| "+p.getPrecio()+"\t\t\t| "+p.getCantidad()*p.getPrecio()*1.25+"\t\t*");
+
+        }
+
     }
 }
