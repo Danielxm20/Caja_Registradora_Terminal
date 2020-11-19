@@ -39,20 +39,16 @@ public class Registradora {
                     break;
                 case 3:
                     mostrarInventario();
-                    //showStock();
                     break;
                 case 4:
                     mostrarCompras();
                     Vista.mostarEncabezadoCompras();
-                    //showPurchases();
                     break;
                 case 5:
                     mostrarVentas();
                     Vista.mostrarEncabezadoVentas();
-                    //showSales();
                     break;
                 case 6:
-                    //View.showThanks();
                     Vista.agradecer();
                     System.exit(0);
                     break;

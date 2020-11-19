@@ -57,7 +57,7 @@ public class BaseDatos {
 
     public void comprar(Producto producto) {
         Producto temp;
-        System.out.println("aqui"+producto.getClass());
+
         switch (producto.getClass().getSimpleName()){
 
             case "Papa":

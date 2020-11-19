@@ -16,15 +16,14 @@ public class Vista {
     }
 
     public static void verMenuPrincipal() {
-        //System.out.print(Color.BLUE_BOLD);
+
         System.out.println("\t\t\t 1. Comprar");
         System.out.println("\t\t\t 2. Vender");
         System.out.println("\t\t\t 3. Inventario");
         System.out.println("\t\t\t 4. Compras");
         System.out.println("\t\t\t 5. Ventas");
         System.out.println("\t\t\t 6. Salir");
-        //System.out.print(Color.RESET);
-        //showEnterOption();
+
     }
 
     public static void seleccionarOpcion(){
@@ -56,20 +55,20 @@ public class Vista {
 
 
     public static void menuCompras(){
-      //  System.out.print(Color.YELLOW);
+
         System.out.println("\t\t**************************************");
         System.out.println("\t\t*            MENU DE COMPRAS         *");
         System.out.println("\t\t**************************************");
-       // System.out.print(Color.RESET);
+
         encabezadoItemsMenu();
     }
 
     public static void encabezadoVentas(){
-        System.out.print(Color.YELLOW);
+        
         System.out.println("\t\t**************************************");
         System.out.println("\t\t*            MENU DE VENTAS          *");
         System.out.println("\t\t**************************************");
-        //System.out.print(Color.RESET);
+
         encabezadoItemsMenu();
     }
 
@@ -78,20 +77,20 @@ public class Vista {
         System.out.println("\t\t*****************************************************");
         System.out.println("\t\t*               I N V E N T A R I O                 *");
         System.out.println("\t\t*****************************************************");
-       // System.out.print(Color.RESET);
+
         encabezadoItems();
 
     }
 
     public static void encabezadoItems(){
-       // System.out.print(Color.BLUE_BOLD);
+
         System.out.println("\t\t-----------------------------------------------------");
         System.out.println("\t\t* PRODUCTO\t| Cantidad\t| Vr Unitario\t| Vr Total\t*");
         System.out.println("\t\t-----------------------------------------------------");
         /*for (Producto v : productos) {
             System.out.println("\t\t* "+v.getName()+"\t| "+v.getAmount()+"\t\t| "+v.getPrice()+"\t\t\t| "+v.getAmount()*v.getPrice()+"\t\t*");
         }*/
-        //System.out.print(Color.RESET);
+
 
     }
 
